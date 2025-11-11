@@ -1,8 +1,11 @@
-# Day 1 - Introduction to AI Agents
-* [White Paper](https://www.kaggle.com/whitepaper-introduction-to-agents) Notes
-* [White Paper Podcast](https://www.youtube.com/watch?v=zTxvGzpfF-g)
+# 5 Day Course Notes
+## Day 1 - Introduction to AI Agents
+* [Lab 1a](https://www.kaggle.com/code/sanyasyed/day-1a-from-prompt-to-action-sanyasyed): From Prompt to Action
+* [Lab 1b](https://www.kaggle.com/code/sanyasyed/day-1b-agent-architectures-sanyasyed): Agent Architecture
+* [White Paper- Introduction to Agents](https://www.kaggle.com/whitepaper-introduction-to-agents)
+* [Introduction to Agents Podcast](https://www.youtube.com/watch?v=zTxvGzpfF-g)
   
-## 🧩 Core Components
+### 🧩 Core Components
 
 | **Component**                                          | **Role**                             | **Description**                                                                                                                                   |
 | ------------------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -12,7 +15,7 @@
 
 ---
 
-## ⚙️ REACT
+### ⚙️ REACT
 
 * **Meaning:** Reasoning + Acting
 * **Goal:** Execute a mission through a **Chain of Thought**
@@ -28,7 +31,7 @@
 
 ---
 
-## 📏 Key Metrics
+### 📏 Key Metrics
 
 * **Security**
 * **Quality**
@@ -36,7 +39,7 @@
 
 ---
 
-## 🧠 System Concepts
+### 🧠 System Concepts
 
 1. **Anatomy:** Model + Tools + Orchestration
 2. **Taxonomy:** Simple agent system → Multi-agent system
@@ -47,14 +50,14 @@
 
 ---
 
-## 🧭 Agentic Systems
+### 🧭 Agentic Systems
 
 * Agents **plan and act** independently using reasoning and tools.
 * **Tool outputs** are appended to the context (prompt) for the next reasoning step.
 
 ---
 
-## 🔁 5-Step Operational Loop
+### 🔁 5-Step Operational Loop
 
 1. **Get the Mission** — Identify the task
 2. **Scan the Scene** — Gather data, identify gaps or resources
@@ -64,7 +67,7 @@
 
 ---
 
-## 🧮 Taxonomy of Agentic Systems
+### 🧮 Taxonomy of Agentic Systems
 
 *(How complex should the agent be?)*
 
@@ -78,9 +81,9 @@
 
 ---
 
-## 🏗️ Architectural Design
+### 🏗️ Architectural Design
 
-### 🧩 Model
+#### 🧩 Model
 
 * **Superior reasoning**
 * **Reliable tool use**
@@ -104,14 +107,14 @@ Route each agent’s request to the **most appropriate model** based on performa
 
 ---
 
-## 🧰 Tools for Retrieval & Action
+#### 🧰 Tools for Retrieval & Action
 
-### 🔍 Retrieval Tools
+##### 🔍 Retrieval Tools
 
 * **RAG (Retrieval-Augmented Generation):** Vector DB or knowledge graphs
 * **Natural Language to SQL:** Allows agents to query databases
 
-### ⚙️ Action Tools
+##### ⚙️ Action Tools
 
 * **APIs:** Execute actions (e.g., search, send email)
 * **HITL (Human in the Loop):** Human feedback via SMS or UI
@@ -122,7 +125,7 @@ Route each agent’s request to the **most appropriate model** based on performa
 
 ---
 
-## 🧠 Memory
+#### 🧠 Memory
 
 * **Purpose:** Augment the agent with context and persona
 
@@ -133,7 +136,7 @@ Route each agent’s request to the **most appropriate model** based on performa
 
 ---
 
-## 🕸️ Multi-Agent System Design Patterns
+### 🕸️ Multi-Agent System Design Patterns
 
 **Coordinator Pattern:**
 
@@ -142,30 +145,31 @@ Route each agent’s request to the **most appropriate model** based on performa
 
 ---
 
-## 🧪 Testing & Debugging
+### 🧪 Testing & Debugging
 
 * **FMOps (Foundation Model Ops):**
-  Manage and monitor large models efficiently.
-  Includes evaluation, versioning, and deployment.
+  * Manage and monitor large models efficiently.
+  * Includes evaluation, versioning, and deployment.
+
+* 🔧 Agent Ops
+  * Evaluate agent performance and reasoning quality using another LLM (*LLM-as-a-judge*).
+  * Use telemetry and benchmarks for human validation.
 
 ---
 
-## 🔧 Agent Ops
+### 💬 Key Terminologies
 
-* Evaluate agent performance and reasoning quality using another LLM (*LLM-as-a-judge*).
-* Use telemetry and benchmarks for human validation.
-
+* **Interoperability:** The ability of different systems and applications to communicate and work together effectively.
+* **MCP (Model Context Protocol)** — open standard for connecting AI to external systems
+* **Agent Development Kit (ADK)** - a flexible and modular framework for developing and deploying AI agents
+* 
 ---
 
-## 💬 Key Term
-
-**Interoperability:**
-The ability of different systems and applications to communicate and work together effectively.
-
----
-
-### [Lab 1a](https://www.kaggle.com/code/sanyasyed/day-1a-from-prompt-to-action-sanyasyed)
-* From Prompt to Action
+## Day 2 - Agent Tools & Interoperability with Model Context Protocol (MCP)
+* [Lab 2a](https://www.kaggle.com/code/sanyasyed/day-2a-agent-tools-sanyasyed): Agent Tools
+* [Lab 2b](https://www.kaggle.com/code/sanyasyed/day-2b-agent-tools-best-practices-sanyasyed): Agent Tools Best Practices
+* [White Paper- Agent Tools & Interoperability with MCP](https://www.kaggle.com/whitepaper-agent-tools-and-interoperability-with-mcp) 
+* [Agent Tools & Interoperability with MCP Podcast](https://www.youtube.com/watch?v=Cr4NA6rxHAM)
   
-### [Lab 1b](https://www.kaggle.com/code/sanyasyed/day-1b-agent-architectures-sanyasyed)
-* Agent Architecture
+
+
