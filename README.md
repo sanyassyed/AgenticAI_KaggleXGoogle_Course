@@ -4,7 +4,6 @@ Where I got to learn the core components – models, tools, orchestration, memor
 Finally, teaching me how agents move beyond LLM prototypes to become production-ready systems.
 
 ## Repository contents
-* [Notes](./notes.md)
-* [Labs](./labs.md)
+* [Workshop Notes](./notes.md)
 * [Capstone Project] (Coming Soon)
 
