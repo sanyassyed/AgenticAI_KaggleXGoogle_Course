@@ -118,15 +118,18 @@ Route each agent’s request to the **most appropriate model** based on performa
 
 * **APIs:** Execute actions (e.g., search, send email)
 * **HITL (Human in the Loop):** Human feedback via SMS or UI
-* **Function Calling:**
 
-  * Via **MCP (Model Context Protocol)** — open standard for connecting AI to external systems
-  * Can be implemented using **ADK (Agent Development Kit)** or similar frameworks
+##### **Function Calling:**
+* For an agent to reliably do “function calling” and use tools, it needs clear instructions, secure connections, and orchestration.
+* Fuction calling can be done via **MCP (Model Context Protocol)** — open standard for connecting AI to external systems
+* Can be implemented using **ADK (Agent Development Kit)** or similar frameworks
 
 ---
 
-#### 🧠 Memory
-
+#### The Orchestration Layer
+##### Core Design Choices
+##### Instruct with Domain Knowledge and Persona
+##### Augment with Context
 * **Purpose:** Augment the agent with context and persona
 
 | **Type**              | **Function**                                      |
@@ -134,9 +137,8 @@ Route each agent’s request to the **most appropriate model** based on performa
 | **Short-term memory** | Scratchpad for immediate actions and observations |
 | **Long-term memory**  | Persistent storage (e.g., via RAG and vector DBs) |
 
----
 
-### 🕸️ Multi-Agent System Design Patterns
+##### 🕸️ Multi-Agent System Design Patterns
 
 **Coordinator Pattern:**
 
@@ -162,7 +164,7 @@ Route each agent’s request to the **most appropriate model** based on performa
 * **Interoperability:** The ability of different systems and applications to communicate and work together effectively.
 * **MCP (Model Context Protocol)** — open standard for connecting AI to external systems
 * **Agent Development Kit (ADK)** - a flexible and modular framework for developing and deploying AI agents
-* 
+
 ---
 
 ## Day 2 - Agent Tools & Interoperability with Model Context Protocol (MCP)
@@ -171,5 +173,56 @@ Route each agent’s request to the **most appropriate model** based on performa
 * [White Paper- Agent Tools & Interoperability with MCP](https://www.kaggle.com/whitepaper-agent-tools-and-interoperability-with-mcp) 
 * [Agent Tools & Interoperability with MCP Podcast](https://www.youtube.com/watch?v=Cr4NA6rxHAM)
   
+### Introduction: Models, Tools and Agents 
+* Tools become the eyes and hands of the foundation models
+Tools and tool calling 8
+What do we mean by a tool? 8
+Types of tools 10
+Built-in tools 11
+Agent Tools 13
+Best Practices 15
+Documentation is important 15
+Describe actions, not implementations 17
+Publish tasks, not API calls 18
+Make tools as granular as possible 18
+Design for concise output 19
+Use validation effectively 19
+Understanding the Model Context Protocol 20
+The "N x M" Integration Problem and the need for Standardization 20
+Table of contents
 
+Core Architectural Components: Hosts, Clients, and Servers 21
+The Communication Layer: JSON-RPC, Transports, and Message Types 22
+Key Primitives: Tools and others 24
+Tool Definition 26
+Tool Results 28
+Structured Content 29
+Error Handling 29
+Other Capabilities 31
+Resources 31
+Prompts 31
+Sampling 32
+Elicitation 33
+Roots 33
+Model Context Protocol: For and Against 34
+Capabilities and Strategic Advantages 34
+Accelerating Development and Fostering a Reusable Ecosystem 34
+Table of contents
+
+Architectural Flexibility and Future-Proofing 35
+Foundations for Governance and Control 36
+Critical Risks and Challenges 36
+Enterprise Readiness Gaps 38
+Security in MCP 39
+New threat landscape 39
+Risks and Mitigations 40
+Tool Shadowing 42
+Malicious Tool Definitions and Consumed Contents 44
+Sensitive information Leaks 45
+No support for limiting the scope of access 46
+Conclusion 48
+Appendix 49
+Confused Deputy problem 49
+The Scenario: A Corporate Code Repository 49
+The Attack 50
 
