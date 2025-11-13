@@ -175,54 +175,52 @@ Route each agent’s request to the **most appropriate model** based on performa
   
 ### Introduction: Models, Tools and Agents 
 * Tools become the eyes and hands of the foundation models
-Tools and tool calling 8
-What do we mean by a tool? 8
-Types of tools 10
-Built-in tools 11
-Agent Tools 13
-Best Practices 15
-Documentation is important 15
-Describe actions, not implementations 17
-Publish tasks, not API calls 18
-Make tools as granular as possible 18
-Design for concise output 19
-Use validation effectively 19
-Understanding the Model Context Protocol 20
-The "N x M" Integration Problem and the need for Standardization 20
-Table of contents
 
-Core Architectural Components: Hosts, Clients, and Servers 21
-The Communication Layer: JSON-RPC, Transports, and Message Types 22
-Key Primitives: Tools and others 24
-Tool Definition 26
-Tool Results 28
-Structured Content 29
-Error Handling 29
-Other Capabilities 31
-Resources 31
-Prompts 31
-Sampling 32
-Elicitation 33
-Roots 33
-Model Context Protocol: For and Against 34
-Capabilities and Strategic Advantages 34
-Accelerating Development and Fostering a Reusable Ecosystem 34
-Table of contents
+###  Agent Tools vs Sub-Agents: What's the Difference?
+This is a common question! Both involve using multiple agents, but they work very differently:
 
-Architectural Flexibility and Future-Proofing 35
-Foundations for Governance and Control 36
-Critical Risks and Challenges 36
-Enterprise Readiness Gaps 38
-Security in MCP 39
-New threat landscape 39
-Risks and Mitigations 40
-Tool Shadowing 42
-Malicious Tool Definitions and Consumed Contents 44
-Sensitive information Leaks 45
-No support for limiting the scope of access 46
-Conclusion 48
-Appendix 49
-Confused Deputy problem 49
-The Scenario: A Corporate Code Repository 49
+Agent Tools (what we're using):
+
+Agent A calls Agent B as a tool
+Agent B's response goes back to Agent A
+Agent A stays in control and continues the conversation
+Use case: Delegation for specific tasks (like calculations)
+Sub-Agents (different pattern):
+
+Agent A transfers control completely to Agent B
+Agent B takes over and handles all future user input
+Agent A is out of the loop
+Use case: Handoff to specialists (like customer support tiers)
+In our currency example: We want the currency agent to get calculation results and continue working with them, so we use Agent Tools, not sub-agents.
+
+---
+## Day 3 - Context Engineering: Sessions & Memory
+* [Lab 3a](): Agent Sessions
+* [Lab 3b](): Agent Memory
+* [White Paper- Agent Tools & Interoperability with MCP]() 
+* [Agent Tools & Interoperability with MCP Podcast](https://www.youtube.com/watch?v=FMcExVE15a4)
+
+---
+
+## Day 4 - Agent Quality
+* [Lab 4a](https://www.kaggle.com/code/sanyasyed/day-2a-agent-tools-sanyasyed): Agent Tools
+* [Lab 4b](https://www.kaggle.com/code/sanyasyed/day-2b-agent-tools-best-practices-sanyasyed): Agent Tools Best Practices
+* [White Paper- Agent Tools & Interoperability with MCP](https://www.kaggle.com/whitepaper-agent-tools-and-interoperability-with-mcp) 
+* [Agent Tools & Interoperability with MCP Podcast](https://www.youtube.com/watch?v=Cr4NA6rxHAM)
+  
+### Introduction: Models, Tools and Agents 
+* Tools become the eyes and hands of the foundation models
+
+---
+
+## Day 5 - Agent Tools & Interoperability with Model Context Protocol (MCP)
+* [Lab 5a](https://www.kaggle.com/code/sanyasyed/day-2a-agent-tools-sanyasyed): Agent Tools
+* [Lab 5b](https://www.kaggle.com/code/sanyasyed/day-2b-agent-tools-best-practices-sanyasyed): Agent Tools Best Practices
+* [White Paper- Agent Tools & Interoperability with MCP](https://www.kaggle.com/whitepaper-agent-tools-and-interoperability-with-mcp) 
+* [Agent Tools & Interoperability with MCP Podcast](https://www.youtube.com/watch?v=Cr4NA6rxHAM)
+  
+### Introduction: Models, Tools and Agents 
+* Tools become the eyes and hands of the foundation models
+
 The Attack 50
 
