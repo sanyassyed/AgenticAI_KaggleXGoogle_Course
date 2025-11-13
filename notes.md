@@ -3,7 +3,7 @@
 * [Lab 1a](https://www.kaggle.com/code/sanyasyed/day-1a-from-prompt-to-action-sanyasyed): From Prompt to Action
 * [Lab 1b](https://www.kaggle.com/code/sanyasyed/day-1b-agent-architectures-sanyasyed): Agent Architecture
 * [White Paper- Introduction to Agents](https://www.kaggle.com/whitepaper-introduction-to-agents)
-* [Introduction to Agents Podcast](https://www.youtube.com/watch?v=zTxvGzpfF-g)
+* [Podcast- Introduction to Agents](https://www.youtube.com/watch?v=zTxvGzpfF-g)
   
 ### 🧩 Core Components
 
@@ -171,7 +171,7 @@ Route each agent’s request to the **most appropriate model** based on performa
 * [Lab 2a](https://www.kaggle.com/code/sanyasyed/day-2a-agent-tools-sanyasyed): Agent Tools
 * [Lab 2b](https://www.kaggle.com/code/sanyasyed/day-2b-agent-tools-best-practices-sanyasyed): Agent Tools Best Practices
 * [White Paper- Agent Tools & Interoperability with MCP](https://www.kaggle.com/whitepaper-agent-tools-and-interoperability-with-mcp) 
-* [Agent Tools & Interoperability with MCP Podcast](https://www.youtube.com/watch?v=Cr4NA6rxHAM)
+* [Podcast- Agent Tools & Interoperability with MCP](https://www.youtube.com/watch?v=Cr4NA6rxHAM)
   
 ### Introduction: Models, Tools and Agents 
 * Tools become the eyes and hands of the foundation models
@@ -195,22 +195,19 @@ In our currency example: We want the currency agent to get calculation results a
 
 ---
 ## Day 3 - Context Engineering: Sessions & Memory
-* [Lab 3a](): Agent Sessions
-* [Lab 3b](): Agent Memory
-* [White Paper- Agent Tools & Interoperability with MCP]() 
-* [Agent Tools & Interoperability with MCP Podcast](https://www.youtube.com/watch?v=FMcExVE15a4)
+* [Lab 3a](https://www.kaggle.com/code/kaggle5daysofai/day-3a-agent-sessions-sanyasyed): Agent Sessions
+* [Lab 3b](https://www.kaggle.com/code/kaggle5daysofai/day-3b-agent-memory-sanyasyed): Agent Memory
+* [White Paper- Context Engineering: Sessions & Memory](https://www.kaggle.com/whitepaper-context-engineering-sessions-and-memory) 
+* [Podcast- Context Engineering: Sessions & Memory](https://www.youtube.com/watch?v=FMcExVE15a4)
 
 ---
 
 ## Day 4 - Agent Quality
-* [Lab 4a](https://www.kaggle.com/code/sanyasyed/day-2a-agent-tools-sanyasyed): Agent Tools
-* [Lab 4b](https://www.kaggle.com/code/sanyasyed/day-2b-agent-tools-best-practices-sanyasyed): Agent Tools Best Practices
-* [White Paper- Agent Tools & Interoperability with MCP](https://www.kaggle.com/whitepaper-agent-tools-and-interoperability-with-mcp) 
-* [Agent Tools & Interoperability with MCP Podcast](https://www.youtube.com/watch?v=Cr4NA6rxHAM)
+* [Lab 4a](https://www.kaggle.com/code/kaggle5daysofai/day-4a-agent-observability-sanyasyed): Agent Observability
+* [Lab 4b](https://www.kaggle.com/code/kaggle5daysofai/day-4b-agent-evaluation-sanyasyed): Agent Evaluation
+* [White Paper - Agent Quality](https://www.kaggle.com/whitepaper-agent-quality) 
+* [Podcast- Agent Quality](https://www.youtube.com/watch?v=LFQRy-Ci-lk)
   
-### Introduction: Models, Tools and Agents 
-* Tools become the eyes and hands of the foundation models
-
 ---
 
 ## Day 5 - Agent Tools & Interoperability with Model Context Protocol (MCP)
