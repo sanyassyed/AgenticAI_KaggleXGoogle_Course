@@ -266,8 +266,36 @@ Types Of Knowledge Storage
 * [Podcast- Agent Quality](https://www.youtube.com/watch?v=LFQRy-Ci-lk)
 
 ### Podcast Notes
-* Designing for quality and not just testing for it
-* 
+* "LLM-as-a-Judge" paradigm , and the critical role ofHuman-in-the-Loop (HITL) evaluation.
+* Designing for quality and not just testing for it - build agents that can be evaluated
+* Agent Quality 3 core messages
+  1. Trajectory is the Truth: We must evolve beyond evaluating just the final output. The true measure of an agent's quality and safety lies in its entire decision-making process.
+  2.  Observability
+    * Logging
+    * Tracing
+    * Metrics - System Metrics (Ops People) - Quality Metrics (Data Scientist)
+  3. Evaluation is a Continuous Loop: We synthesize these concepts into the "Agent Quality Flywheel", an operational playbook for turning this data into actionable insights. This system uses a hybrid of scalable AI-driven evaluators and indispensable Human-in-the-Loop (HITL) judgment to drive relentless improvement.
+* Traditonal Coding vs AI Agent
+* Agent Failure Modes
+  * Algorithmic Bias
+  * Factual Hallucination
+  * Performance & Concept Drift - 
+  * Emergent Unintended Behaviors - finds clever looholes to achieve it's goal
+* 4 pillars of Quality
+  *
+  * Efficiency - solved problem well
+  * Robustness
+  * Safety & Alignment
+* Outside-In Evaluation Hierarchy
+* Inside-Out Evaluation
+* Evil-case : to lock in that known good path
+* Hybrid System -
+  * Score - Rouge / BERT
+  * LLM as judge
+  * Agent as a judge
+  * HITL - good reviewer UI
+* Responsible AI (RAI)
+* Dynamic Sampling (100% of Failures & 10% of Successes)
 ---
 
 ## Day 5 - Agent Tools & Interoperability with Model Context Protocol (MCP)
