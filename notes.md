@@ -200,6 +200,63 @@ In our currency example: We want the currency agent to get calculation results a
 * [White Paper- Context Engineering: Sessions & Memory](https://www.kaggle.com/whitepaper-context-engineering-sessions-and-memory) 
 * [Podcast- Context Engineering: Sessions & Memory](https://www.youtube.com/watch?v=FMcExVE15a4)
 
+### Notes
+Types Of Knowledge Storage
+1. Sessions - the container for a single, immediate conversation's history (Short Term Memory)
+  * State:
+    * session.state is the Agent's scratchpad, where it stores and updates dynamic details needed during the conversation.
+    * Think of it as a global {key, value} pair storage which is available to all subagents and tools.
+  * Events:
+    * session.events are the building blocks of a conversation.
+  * Service
+    * SessionService: The storage layer
+    * InMemorySessionService()
+    * DatabaseSessionService() `session_service = DatabaseSessionService(db_url="sqlite:///my_agent_data.db")`
+    * Agent Engine Sessions	- Production on GCP the cloud
+  * Runner
+    * The orchestration layer
+    ``` python
+    runner = Runner(
+    agent=user_agent,
+    app_name=APP_NAME,
+    session_service=session_service,
+    memory_service=memory_service,)
+    ```
+  * Context Compaction
+      * this feature automatically reduce the context that's stored in the Session
+      * assign Agent to App
+      * `EventsCompactionConfig(compaction_interval=3, overlap_size=1,)`
+        * `compaction_interval`: Asks the Runner to compact the history after every n conversations
+        * `overlap_size`: Defines the number of previous conversations to retain for overlap
+  ```
+  Session = A notebook 📓
+  Events = Individual entries in a single page 📝
+  SessionService = The filing cabinet storing notebooks 🗄️
+  Runner = The assistant managing the conversation 🤖
+  ```
+2. Memory - the long-term persistence mechanism
+  * **Integration process** - 3 step:
+    1. Initialize → Create a MemoryService and provide it to your agent via the Runner
+       * ADK provides multiple `MemoryService` implementations through the `BaseMemoryService` interface:
+        * `InMemoryMemoryService()` - Built-in service for prototyping and testing (keyword matching, no persistence)
+        * `VertexAiMemoryBankService()` - Managed cloud service with LLM-powered consolidation and semantic search
+        * Custom implementations - You can build your own using databases, though managed services are recommended
+    1. Ingest → Transfer session data to memory using add_session_to_memory()
+       1. `session_service.get_session()` : to get the session eg: `session = await session_service.get_session(app_name=APP_NAME, user_id=USER_ID, session_id="conversation-01")`
+       * `add_session_to_memory()` - Use this function to make session information available for long-term recall. You explicitly transfer it to the memory using this function. eg: `await memory_service.add_session_to_memory(session)`
+    1. Retrieve → Search stored memories using search_memory()
+       * `load_memory()` - Agent decides when to search memory
+       * `preload_memory()` - Automatically searches before every turn
+  * **Manual Memory** Search - you can also search memories directly in your code.
+  * **Automating Memory** Storage
+    * Callbacks
+      * `before_agent_callback` → Runs before agent starts processing a request
+      * `after_agent_callback` → Runs after agent completes its turn
+      * `before_tool_callback` / `after_tool_callback` → Around tool invocations
+      * `before_model_callback` / `after_model_callback` → Around LLM calls
+      * `on_model_error_callback` → When errors occur 
+  * **Memory Consolidation** - Managed Memory Services handle consolidation automatically 
+
 ---
 
 ## Day 4 - Agent Quality
@@ -207,7 +264,10 @@ In our currency example: We want the currency agent to get calculation results a
 * [Lab 4b](https://www.kaggle.com/code/kaggle5daysofai/day-4b-agent-evaluation-sanyasyed): Agent Evaluation
 * [White Paper - Agent Quality](https://www.kaggle.com/whitepaper-agent-quality) 
 * [Podcast- Agent Quality](https://www.youtube.com/watch?v=LFQRy-Ci-lk)
-  
+
+### Podcast Notes
+* Designing for quality and not just testing for it
+* 
 ---
 
 ## Day 5 - Agent Tools & Interoperability with Model Context Protocol (MCP)
