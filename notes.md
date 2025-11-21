@@ -159,6 +159,9 @@ Route each agent’s request to the **most appropriate model** based on performa
 
 ---
 
+### Introduction: Models, Tools and Agents 
+* Tools become the eyes and hands of the foundation models
+
 ### 💬 Key Terminologies
 
 * **Interoperability:** The ability of different systems and applications to communicate and work together effectively.
@@ -303,9 +306,260 @@ Types Of Knowledge Storage
 * [Lab 5b](https://www.kaggle.com/code/sanyasyed/day-2b-agent-tools-best-practices-sanyasyed): Agent Tools Best Practices
 * [White Paper- Agent Tools & Interoperability with MCP](https://www.kaggle.com/whitepaper-agent-tools-and-interoperability-with-mcp) 
 * [Agent Tools & Interoperability with MCP Podcast](https://www.youtube.com/watch?v=Cr4NA6rxHAM)
-  
-### Introduction: Models, Tools and Agents 
-* Tools become the eyes and hands of the foundation models
 
-The Attack 50
+### Podcast Notes - Deploying, Scaling & Productionizing AI Agents*
+Here are clean, organized, **GitHub-ready notes** based on the full podcast transcript.
+I’ve written them in **markdown style** so you can paste them directly into your repo’s README or a `/notes/whitepaper.md` file.
+
+If you want these in a canvas or as a file, just let me know.
+
+---
+
+##### 🎯 Overview
+
+Modern AI agents are easy to prototype but *hard* to productionize. The “last-mile gap” is huge—over **80% of real engineering effort** goes not into the AI model, but into infrastructure, validation, safety, and tooling. This white paper outlines how to move from a clever agent demo to a reliable enterprise-grade system.
+
+---
+
+#### 1. Why AI Agents Need New Operational Thinking
+
+AI agents **behave dynamically**—they reason, choose tools, interact, and maintain memory.
+Traditional MLOps falls short because:
+
+* Agents don’t follow deterministic paths
+* They may never take the same execution path twice
+* They orchestrate tools on the fly
+* They require scalable, secure state/memory management
+* Their cost and latency are unpredictable
+
+Thus, “AgentOps” is the emerging discipline.
+
+---
+
+#### 2. Key Pillars of Agent Production Systems
+
+The white paper breaks it down into three foundational pillars:
+
+##### **1. Automated Evaluation**
+
+Evaluate both **outputs** and **behaviors**, e.g.:
+
+* Tool choice and correctness
+* Reasoning quality
+* Memory usage
+* Safety and hallucination checks
+
+##### **2. Automated Deployment (CI/CD)**
+
+Use evaluation-gated deployment to prevent bad agents from reaching users.
+
+##### **3. Observability**
+
+Full visibility through:
+
+* Logs
+* Traces
+* Metrics
+
+---
+
+### 3. People & Roles Needed
+
+Before tooling—fix the team structure.
+
+##### ⚙️ Existing roles
+
+* Cloud/platform engineering
+* Security
+* Traditional MLOps
+
+##### ⭐ New roles for GenAI
+
+###### **Prompt Engineer**
+
+* Defines system instructions (“agent constitution”)
+* Enforces domain-specific guardrails
+* Designs prompt structures and evaluation datasets
+
+###### **AI Engineer**
+
+* Builds backend systems integrating:
+
+  * Guardrails
+  * RAG
+  * Tools
+  * Memory
+  * Automated evaluation pipelines
+
+Close collaboration across all teams is mandatory.
+
+---
+
+### 4. Pre-Production: Evaluation-Gated CI/CD
+
+This is the core engine.
+
+#### 📌 Phase 1: Pre-merge CI
+
+Fast checks before code hits `main`:
+
+* Unit tests
+* Linting & style checks
+* Quick security scans
+* Core agent evaluation suite
+
+Goal: *Fast feedback, clean main branch.*
+
+#### 📌 Phase 2: Post-merge → Staging
+
+Heavy testing in a production-like environment:
+
+* Load testing
+* Integration testing with external services
+* Internal user testing (“dogfooding”)
+
+#### 📌 Phase 3: Gated Production Deployment
+
+* Release must be the exact validated build artifact
+* Typically requires human approval
+* Backed by infrastructure-as-code (e.g., Terraform)
+
+---
+
+### 5. Safe Rollout Strategies
+
+To reduce risk in production:
+
+* **Canary releases** (1% users first)
+* **Blue/Green deployments** (switch traffic instantly)
+* **A/B testing** (compare agent variants on real metrics)
+* **Strict versioning** of
+
+  * Code
+  * Prompts
+  * Tool schemas
+  * Memory structures
+
+Versioning = instant rollback ability.
+
+---
+
+### 6. Security: The SIF Framework
+
+Google’s 3-layer secure AI agent model:
+
+##### **Layer 1 — Policy Definition**
+
+System instructions define “constitutional rules.”
+
+##### **Layer 2 — Guardrails & Filtering**
+
+* Input filtering (e.g., Perspective API)
+* Output filtering (PII, hate speech, safety)
+* Human-in-the-loop (HITL) gating for high-risk actions
+
+##### **Layer 3 — Continuous Assurance**
+
+* Continuous safety testing
+* Responsible AI evaluations
+* Red teaming (simulated attacks)
+
+Threats include:
+
+* Prompt injection
+* Data leakage
+* Memory poisoning
+
+---
+
+### 7. Operations: Observe → Act → Evolve
+
+Agents need continuous management—not deploy-and-forget.
+
+#### 🔍 1. Observe (Building the “Sensory System”)
+
+* **Logs** → detailed events
+* **Traces** → causal chains across services
+* **Metrics** → latency, error rate, tool success rate, cost/user, satisfaction
+
+#### 🛠 2. Act (Control & Stability)
+
+Key design principles:
+
+* **Decouple state from logic**
+
+  * Use external memory stores (like Cloud SQL)
+* **Idempotent tools**
+
+  * Safe retries with exponential backoff
+* **Cost controls**
+
+  * Caching
+  * Prompt optimization
+  * Batch requests
+
+##### Security Incident Response (Playbook)
+
+1. **Contain** (disable risky tools via feature flags)
+2. **Triage** (route to HITL)
+3. **Investigate**
+4. **Resolve & redeploy** using CI/CD
+
+#### 🚀 3. Evolve (Continuous Improvement)
+
+* Convert real production failures → new “golden dataset” test cases
+* Iterate prompts, guardrails, tools
+* Deploy upgrades in hours, not weeks
+
+---
+
+### 8. Multi-Agent Systems & Interoperability
+
+Organizations will have many specialized agents. To avoid silos, two protocols matter:
+
+#### 🧰 **MCP — Model Context Protocol**
+
+* Stateless
+* For interacting with tools and static resources
+* Example: “Fetch current weather for London”
+
+#### 🤝 **A2A — Agent-to-Agent Protocol**
+
+* Stateful
+* For collaboration or delegating goals
+* Example: “Analyze churn and propose retention strategies”
+
+##### Analogy
+
+* Supervisor agent uses **A2A** to delegate to mechanic agent
+* Mechanic uses **MCP** to call diagnostic tools
+
+##### Agent Discovery
+
+Uses **agent cards** (JSON descriptors):
+
+* Capabilities
+* URLs
+* Skills
+* Authentication requirements
+
+##### Infrastructure Requirements
+
+* Distributed tracing across agents
+* Shared registries for large orgs
+* Robust state management
+
+---
+
+### ⭐ High-Level Takeaways
+
+* Prototyping agents is easy; **productionizing** them is hard.
+* **80%** of effort is in systems, not AI.
+* Evaluation-gated CI/CD is the backbone.
+* Observability and versioning are non-negotiable.
+* Multi-agent collaboration requires standards (A2A, MCP).
+* Security requires layered, continuous defenses.
+* Production agents are *living systems* that must evolve daily.
+---
+
 
