@@ -269,36 +269,175 @@ Types Of Knowledge Storage
 * [Podcast- Agent Quality](https://www.youtube.com/watch?v=LFQRy-Ci-lk)
 
 ### Podcast Notes
-* "LLM-as-a-Judge" paradigm , and the critical role ofHuman-in-the-Loop (HITL) evaluation.
-* Designing for quality and not just testing for it - build agents that can be evaluated
-* Agent Quality 3 core messages
-  1. Trajectory is the Truth: We must evolve beyond evaluating just the final output. The true measure of an agent's quality and safety lies in its entire decision-making process.
-  2.  Observability
-    * Logging
-    * Tracing
-    * Metrics - System Metrics (Ops People) - Quality Metrics (Data Scientist)
-  3. Evaluation is a Continuous Loop: We synthesize these concepts into the "Agent Quality Flywheel", an operational playbook for turning this data into actionable insights. This system uses a hybrid of scalable AI-driven evaluators and indispensable Human-in-the-Loop (HITL) judgment to drive relentless improvement.
-* Traditonal Coding vs AI Agent
-* Agent Failure Modes
-  * Algorithmic Bias
-  * Factual Hallucination
-  * Performance & Concept Drift - 
-  * Emergent Unintended Behaviors - finds clever looholes to achieve it's goal
-* 4 pillars of Quality
-  *
-  * Efficiency - solved problem well
-  * Robustness
-  * Safety & Alignment
-* Outside-In Evaluation Hierarchy
-* Inside-Out Evaluation
-* Evil-case : to lock in that known good path
-* Hybrid System -
-  * Score - Rouge / BERT
-  * LLM as judge
-  * Agent as a judge
-  * HITL - good reviewer UI
-* Responsible AI (RAI)
-* Dynamic Sampling (100% of Failures & 10% of Successes)
+
+#### **Core Themes**
+
+* The “**LLM-as-a-Judge**” paradigm and the critical role of **Human-in-the-Loop (HITL)** evaluation.
+* **Designing for quality, not just testing for it** → Agents must be *built* to be observable and evaluable from day one.
+* Agent systems are **non-deterministic, dynamic, and evolving**, so old software testing models fail.
+
+---
+
+### **3 Core Messages of Agent Quality**
+
+##### **1. Trajectory Is the Truth**
+
+* Do not judge an agent only by its final output.
+* You need the **entire chain of thought, planning steps, tool calls, and decisions** to understand quality & safety.
+* A correct answer reached through a broken or inefficient path is still a quality issue.
+
+##### **2. Observability Is Foundational**
+
+To evaluate the trajectory, you must *see* it:
+
+###### **Logging**
+
+* Fine-grained, structured (JSON) logs.
+* Capture internal reasoning, tool inputs/outputs, and step-by-step progression.
+
+###### **Tracing**
+
+* Connect logs into a **cause-and-effect narrative** (OpenTelemetry spans).
+* Shows how each step led to the next; essential for debugging multi-step failures.
+
+###### **Metrics**
+
+* **System Metrics (for Ops/SRE)**
+
+  * Latency (P50/P99), token cost, error rates, tool/API failures.
+* **Quality Metrics (for Product/Data Science)**
+
+  * Correctness, helpfulness, trajectory adherence, success rates by category.
+
+##### **3. Evaluation Is a Continuous Loop**
+
+* Called the **Agent Quality Flywheel**.
+* Every real-world run—especially failures—feeds back into agent improvement.
+* Continuous feedback → improved agent → stronger evaluation → better data → repeat.
+
+---
+
+### **Traditional Coding vs AI Agents**
+
+* **Traditional software:** deterministic, explicit failure modes (delivery truck).
+* **Agents:** dynamic decision-makers like **Formula 1 cars** → subtle, quiet failures, evolving behavior, unpredictable paths.
+
+---
+
+### **Agent Failure Modes**
+
+* **Algorithmic Bias** – e.g., resume screening learns past discriminatory patterns.
+* **Factual Hallucination** – confidently incorrect statements or invented facts/sources.
+* **Performance & Concept Drift** – world changes but model doesn’t (fraud patterns, customer behavior).
+* **Emergent Unintended Behaviors** – develops superstitions or exploits loopholes to achieve goals.
+
+---
+
+### **4 Pillars of Quality**
+
+1. **Effectiveness** – Did it accomplish the real user goal? (not just task completion)
+2. **Efficiency** – Latency, cost, path optimality; did it solve the problem well?
+3. **Robustness** – Handles unclear instructions, API errors, edge cases gracefully.
+4. **Safety & Alignment** – Ethics, guardrails, refusing harmful tasks, preventing prompt injection. *Non-negotiable.*
+
+---
+
+### **Evaluation Approaches**
+
+#### **Outside-In Evaluation**
+
+* Start with **end-to-end evaluation** (black box):
+
+  * Did it succeed?
+  * User satisfaction (CSAT).
+* Shows **what** failed but not **why**.
+
+#### **Inside-Out Evaluation (Trajectory Evaluation)**
+
+* Inspect the **full reasoning path** for root causes:
+
+  * Faulty planning (repetition, losing context).
+  * Incorrect tool usage.
+  * Misinterpreting tool/API responses.
+* Crucial for diagnosis.
+
+##### **Evil-Case Testing (Kaggle ADK)**
+
+* Save a **successful trajectory** (tool calls + reasoning) as an *“eval case”*.
+* Use it as a **regression test**: if the agent deviates, something broke.
+* "Locks in the known good path."
+
+---
+
+### **Hybrid Evaluation System**
+
+##### **1. Automated Metrics**
+
+* ROUGE, BERTScore, etc.
+* Quick surface-level similarity indicators.
+* Useful for CI/CD trend monitoring, **not** for deep quality.
+
+##### **2. LLM-as-a-Judge**
+
+* A strong LLM evaluates the agent’s output.
+* Use **pairwise comparison** instead of ratings (avoids central-tendency bias).
+* Produces clear win/loss signal.
+
+##### **3. Agent-as-a-Judge**
+
+* A specialized agent that evaluates **another agent’s trajectory**.
+* Judges reasoning steps, tool choices, decision quality.
+
+##### **4. HITL (Human-in-the-Loop)**
+
+* Humans set standards, judge nuance, create golden datasets.
+* Essential for high-stakes tasks → interruption workflow (e.g., payment approval).
+* Good reviewer UI:
+
+  * Conversation on left
+  * Trajectory (thoughts + tool calls) on right
+
+---
+
+### **Responsible AI (RAI) Layer**
+
+* Continuous red-teaming to find vulnerabilities.
+* Safety components implemented as **plugins**:
+
+  * `before_model_callback` – input scanning (prompt injection).
+  * `after_model_callback` – output scanning (PII leaks, policy violations).
+
+---
+
+### **Dynamic Sampling**
+
+* Full tracing of **100% of failures**.
+* Lower sampling (e.g., 10%) for successful runs.
+* Balances performance with visibility.
+
+---
+
+### **The Agent Quality Flywheel (Summary)**
+
+1. **Define** quality goals (pillars).
+2. **Instrument** for observability (logs, traces, metrics).
+3. **Evaluate** continuously (hybrid system).
+4. **Improve** agents using real-world insights.
+5. **Repeat** → agents become more reliable, safe, and aligned.
+
+---
+
+### **3 Absolute Takeaways**
+
+1. **Evaluation must be designed in.**
+   It’s an architectural pillar, not a late-stage QA task.
+
+2. **Trajectory is the truth.**
+   The real story of quality is in the reasoning path, not the final output.
+
+3. **Humans remain the arbiters of quality.**
+   Automation scales, but humans define correctness, safety, and nuance.
+
 ---
 
 ## Day 5 - Agent Tools & Interoperability with Model Context Protocol (MCP)
