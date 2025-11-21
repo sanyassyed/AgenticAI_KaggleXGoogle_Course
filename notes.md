@@ -2,11 +2,10 @@
 
 ## 🔗 Labs & Resources
 
-* **Lab 1a:** From Prompt to Action
-* **Lab 1b:** Agent Architecture
-* **White Paper:** Introduction to Agents
-* **Podcast:** Introduction to Agents
-
+* [Lab 1a](https://www.kaggle.com/code/sanyasyed/day-1a-from-prompt-to-action-sanyasyed): From Prompt to Action
+* [Lab 1b](https://www.kaggle.com/code/sanyasyed/day-1b-agent-architectures-sanyasyed): Agent Architecture
+* [White Paper- Introduction to Agents](https://www.kaggle.com/whitepaper-introduction-to-agents)
+* [Podcast- Introduction to Agents](https://www.youtube.com/watch?v=zTxvGzpfF-g)
 ---
 
 ## 🧩 Core Components
@@ -161,10 +160,10 @@ Tool outputs are appended back into the system prompt.
 
 ## 🔗 Labs & Resources
 
-* Lab 2a: Agent Tools
-* Lab 2b: Best Practices
-* White Paper
-* Podcast
+* [Lab 2a](https://www.kaggle.com/code/sanyasyed/day-2a-agent-tools-sanyasyed): Agent Tools
+* [Lab 2b](https://www.kaggle.com/code/sanyasyed/day-2b-agent-tools-best-practices-sanyasyed): Agent Tools Best Practices
+* [White Paper- Agent Tools & Interoperability with MCP](https://www.kaggle.com/whitepaper-agent-tools-and-interoperability-with-mcp) 
+* [Podcast- Agent Tools & Interoperability with MCP](https://www.youtube.com/watch?v=Cr4NA6rxHAM)
 
 ---
 
@@ -190,10 +189,10 @@ Currency conversion → use **agent tools**, not sub-agent delegation.
 
 ## 🔗 Labs & Resources
 
-* Lab 3a: Sessions
-* Lab 3b: Memory
-* White Paper
-* Podcast
+* [Lab 3a](https://www.kaggle.com/code/kaggle5daysofai/day-3a-agent-sessions-sanyasyed): Agent Sessions
+* [Lab 3b](https://www.kaggle.com/code/kaggle5daysofai/day-3b-agent-memory-sanyasyed): Agent Memory
+* [White Paper- Context Engineering: Sessions & Memory](https://www.kaggle.com/whitepaper-context-engineering-sessions-and-memory) 
+* [Podcast- Context Engineering: Sessions & Memory](https://www.youtube.com/watch?v=FMcExVE15a4)
 
 ---
 
@@ -236,10 +235,10 @@ Managed services (Vertex memory) handle merging.
 
 ## 🔗 Labs & Resources
 
-* Lab 4a: Observability
-* Lab 4b: Evaluation
-* White Paper
-* Podcast
+* [Lab 4a](https://www.kaggle.com/code/kaggle5daysofai/day-4a-agent-observability-sanyasyed): Agent Observability
+* [Lab 4b](https://www.kaggle.com/code/kaggle5daysofai/day-4b-agent-evaluation-sanyasyed): Agent Evaluation
+* [White Paper - Agent Quality](https://www.kaggle.com/whitepaper-agent-quality) 
+* [Podcast- Agent Quality](https://www.youtube.com/watch?v=LFQRy-Ci-lk)
 
 ---
 
@@ -323,10 +322,10 @@ Save good trajectories as regression tests.
 # **Day 5 – Deploying, Scaling & Productionizing Agents 🚀**
 
 ## 🔗 Labs & Resources
-
-* Lab 5a & 5b
-* White Paper
-* Podcast
+* [Lab 5a](https://www.kaggle.com/code/sanyasyed/day-2a-agent-tools-sanyasyed): Agent Tools
+* [Lab 5b](https://www.kaggle.com/code/sanyasyed/day-2b-agent-tools-best-practices-sanyasyed): Agent Tools Best Practices
+* [White Paper- Agent Tools & Interoperability with MCP](https://www.kaggle.com/whitepaper-agent-tools-and-interoperability-with-mcp) 
+* [Agent Tools & Interoperability with MCP Podcast](https://www.youtube.com/watch?v=Cr4NA6rxHAM)
 
 ---
 
